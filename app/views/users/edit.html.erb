@@ -1,0 +1,17 @@
+<%= form_with model: @user do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <% @user.vars_fields.each do |name, value| %>
+  <div class="field">
+    <%= f.label "vars_#{name}", name %>
+    <%= text_field_tag "user[vars][#{name}]", value  %>
+  </div>
+  <% end %>
+
+  <%= f.button type: "submit" %>
+<% end %>
+
+<%= link_to "Cancelar", user_document_templates_path(@user) %>

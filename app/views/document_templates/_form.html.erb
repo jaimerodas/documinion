@@ -1,0 +1,13 @@
+<%= form_with model: [@user, @document_template] do |f| %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+  <div class="field">
+    <%= f.label :liquid_text %>
+    <%= f.text_area :liquid_text %>
+  </div>
+
+  <%= f.button type: "submit" %>
+<% end %>

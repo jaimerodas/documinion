@@ -1,0 +1,16 @@
+<h2><%= @document_template.name %></h2>
+<%= link_to "Editar", edit_user_document_template_path(@user, @document_template) %>
+<%= link_to "Regresar", user_document_templates_path(@user) %>
+
+<%= form_with url: user_document_template_render_path(@user, @document_template), local: true do %>
+  <% @document_template.local_vars.each do |local_var| %>
+  <div class="field">
+    <%= label_tag "render[local_vars][#{local_var}]", local_var %>
+    <%= text_field_tag "render[local_vars][#{local_var}]" %>
+  </div>
+  <% end %>
+
+  <%= button_tag "Generar", type: :submit %>
+<% end %>
+
+<pre><%= @document_template.liquid_text %></pre>

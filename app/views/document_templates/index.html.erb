@@ -1,0 +1,13 @@
+<h1><%= @user.email %></h1>
+<% if @user.missing_vars? %>
+<span>Faltan variables por agregar</span>
+<% end %>
+<%= link_to "Editar", edit_user_path(@user) %>
+
+<% if @document_templates.any? %>
+<ul>
+  <%= render @document_templates %>
+</ul>
+<% end %>
+
+<%= link_to "Crear Template", new_user_document_template_path %>
